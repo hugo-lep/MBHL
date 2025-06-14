@@ -21,4 +21,4 @@ server <- function(input, output) {
 }
 
 # Exécution de l'application Shiny
-runApp(list(ui = ui, server = server))
+#runApp(list(ui = ui, server = server))
