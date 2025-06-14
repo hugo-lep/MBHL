@@ -1,24 +1,29 @@
+# Data for all sessions  ---------------------------------------------------------
+# * ------ library --------------------------------------------------------
+
+library(here)
 library(shiny)
+library(shinydashboard)
+library(protegR)
+library(tidyr)
+library(purrr)
 
-# Définition de l'interface utilisateur (UI)
-ui <- fluidPage(
-  titlePanel("Mini App Shiny"),
-  sidebarLayout(
-    sidebarPanel(
-      sliderInput("num", "Choisissez un nombre :", 1, 100, 50)
-    ),
-    mainPanel(
-      textOutput("result")
-    )
-  )
-)
 
-# Définition du serveur (Server)
-server <- function(input, output) {
-  output$result <- renderText({
-    paste("Vous avez choisi le nombre :", input$num)
-  })
-}
+# * ------ AWS connect + load config --------------------------------------
+#AWS_connection()
+#config_global <- s3readRDS(object = str_c(config_s3_location$s3_main_folder,"/config_files/config_global.rds"),
+#                           bucket = config_s3_location$s3_bucket)
+#addResourcePath("images", "inst/app/www")
 
-# Exécution de l'application Shiny
-shinyApp(ui = ui, server = server)
+
+# * ------ load R files ------------------------------------------------------------
+list.files("R", full.names = TRUE, pattern = "\\.R$") %>% walk(source)
+#list.files("R/internal", full.names = TRUE, pattern = "\\.R$") %>% walk(source)
+
+
+
+
+
+
+# START APP ---------------------------------------------------------------
+shinyApp(ui, server)
