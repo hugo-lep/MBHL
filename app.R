@@ -7,6 +7,11 @@ library(protegR)
 library(tidyr)
 library(purrr)
 
+addResourcePath("images", "inst/app/www")
+
+#config_s3_location <- read_rds("inst/app/data/config_s3_location.rds")
+#config_s3_access <- read_rds("inst/app/data/config_s3_access.rds")
+#message("lecturelocale: config_s3_location")
 
 # * ------ AWS connect + load config --------------------------------------
 #AWS_connection()
