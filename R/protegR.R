@@ -1,3 +1,6 @@
+library(shinydashboard)
+
+
 ui <- dashboardPage(
   dashboardHeader(title = "Mini Dashboard"),
   dashboardSidebar(
